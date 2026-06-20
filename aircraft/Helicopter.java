@@ -1,0 +1,29 @@
+package aircraft;
+
+
+public class Helicopter extends Aircraft{
+    public Helicopter(long p_id, String p_name, Coordinates p_c){
+        super(p_id, p_name, p_c);
+    }
+
+    public void updateConditions(){
+        String weather = this.weatherTower.getWeather(this.coordinates);
+        if(weather.equals("SUN")){
+            //logique
+        }
+        else if(weather.equals("RAIN")){
+            //logique
+        }
+        else if(weather.equals("FOG")){
+            //logique
+        }
+        else if(weather.equals("SNOW")){
+            //logique
+        }
+    }
+}
+
+/*SUN - Longitude increases with 10, Height increases with 2
+◦ RAIN - Longitude increases with 5
+◦ FOG - Longitude increases with 1
+◦ SNOW - Height decreases with 12*/
