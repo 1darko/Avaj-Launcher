@@ -1,4 +1,7 @@
 package aircraft;
+import coordinates.Coordinates;
+import tower.WeatherTower;
+
 
 public class Baloon extends Aircraft{
     public Baloon(long p_id, String p_name, Coordinates p_c){
@@ -14,22 +17,29 @@ public class Baloon extends Aircraft{
 
         switch(weather){
             case "SUN":
-                this.longitude += 2;
-                this.height += 4;
+                this.coordinates.changeLongitude(2);
+                this.coordinates.changeHeight(4);
+                System.out.println("Baloon#" + this.name + "(" + this.id + "): Let's enjoy the good weather and take some pics.");
                 break;
             case "RAIN":
-                this.height -= 5;
+                this.coordinates.changeHeight(-5);
+                System.out.println("Baloon#" + this.name + "(" + this.id + "): It's raining, let's be careful.");
                 break;
             case "FOG":
-                this.height -= 3;
+                this.coordinates.changeHeight(-3);
+                System.out.println("Baloon#" + this.name + "(" + this.id + "): It's foggy, let's be careful.");
                 break;
             case "SNOW":
-                this.height -= 15;
+                this.coordinates.changeHeight(-15);
+                System.out.println("Baloon#" + this.name + "(" + this.id + "): It's snowing, let's be careful.");
                 break;
         }
-        this.height = heightProtection(this.height, 0, 100);
-        if (this.height == 0){
+        // this.coordinates.changeHeight(heightProtection(this.coordinates.getHeight(), 0, 100));
+        if (this.coordinates.getHeight() <= 0){
             this.weatherTower.unregister(this);
+        }
+        else{
+            System.out.println("Baloon#" + this.name + "(" + this.id + "): at height :" + this.coordinates.getHeight());
         }
     }
 }

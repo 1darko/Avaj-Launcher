@@ -1,10 +1,10 @@
 package tower;
-// import java.util.ArrayList;
-// import java.util.List;
+import java.util.ArrayList;
+import java.util.List;
 import aircraft.Flyable;
 
 public class Tower{
-    private List<Flyable> observers = new ArrayList<>();
+    private List<Flyable> observers = new ArrayList<Flyable>();
     
     public void register(Flyable f){
         observers.add(f);
@@ -15,7 +15,8 @@ public class Tower{
         System.out.println("Tower says: " + f.getName() + "(" + f.getId() + ") unregistered from weather tower.");
     }
     protected void conditionChanged(){
-        for(Flyable observer : observers){
+        List<Flyable> copy = new ArrayList<Flyable>(observers);
+        for(Flyable observer : copy){
             observer.updateConditions();
         }
     }

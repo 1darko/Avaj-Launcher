@@ -1,5 +1,6 @@
 package aircraft;
-
+import coordinates.Coordinates;
+import tower.WeatherTower;
 
 public class Helicopter extends Aircraft{
     public Helicopter(long p_id, String p_name, Coordinates p_c){

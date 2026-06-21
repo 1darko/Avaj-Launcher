@@ -15,4 +15,22 @@ public class Coordinates{
         else
             this.height = height;
     }
+    public int getLongitude(){
+        return this.longitude;
+    }
+    public int getLatitude(){
+        return this.latitude;
+    }
+    public int getHeight(){
+        return this.height;
+    }
+    public void changeLongitude(int longitude){
+        this.longitude += longitude;
+    }
+    public void changeLatitude(int latitude){
+        this.latitude += latitude;
+    }
+    public void changeHeight(int height){
+            this.height += height;
+    }
 }

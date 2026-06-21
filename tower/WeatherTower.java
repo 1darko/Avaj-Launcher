@@ -1,4 +1,6 @@
 package tower;
+import coordinates.Coordinates;
+import weather.WeatherProvider;
 
 public class WeatherTower extends Tower{
     public String getWeather(Coordinates c){

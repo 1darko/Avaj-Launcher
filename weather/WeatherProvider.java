@@ -1,4 +1,5 @@
 package weather;
+import coordinates.Coordinates;
 
 public class WeatherProvider{
     private String[] weather = {"RAIN", "FOG", "SUN", "SNOW"};
@@ -12,7 +13,8 @@ public class WeatherProvider{
     };
 
     public String getCurrentWeather(Coordinates c){
-        int index = (c.getLongitude() + c.getLatitude() + c.getHeight()) % 4;
+        int index = (c.getLongitude() + c.getLatitude() + c.getHeight() - 7) % 4;
+        System.out.println(index);
         return (index < 0 ? weather[index + 4] : weather[index]);
     }
 }
